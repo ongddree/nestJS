@@ -6,12 +6,12 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get('hello/:id/:name')
+  @Get('/:id/:name')
   getHello(
     @Req() req: Request,
     @Body() Body,
     @Param() param: { id: string; name: string },
   ): string {
-    return this.appService.getHello();
+    return `id + ${param.id} + name + ${param.name}`;
   }
 }
